@@ -41,11 +41,12 @@ class FolderData(Dataset):
         default_caption="",
         postprocess=None,
         return_paths=False,
-        ) -> None:
+    ) -> None:
         """Create a dataset from a folder of images.
         If you pass in a root directory it will be searched for images
         ending in ext (ext can be a list)
         """
+        image_transforms = image_transforms.copy()
         self.root_dir = Path(root_dir)
         self.default_caption = default_caption
         self.return_paths = return_paths
